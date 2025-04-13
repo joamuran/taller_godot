@@ -1,0 +1,635 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../1.intro/">
+      
+      
+        <link rel="next" href="../3.enemics/">
+      
+      
+      <link rel="icon" href="../img/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+    
+    
+      
+        <title>2. Personatge - Taller de Godot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#el-personatge-principal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Taller de Godot" class="md-header__button md-logo" aria-label="Taller de Godot" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Taller de Godot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Personatge
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Taller de Godot" class="md-nav__button md-logo" aria-label="Taller de Godot" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    Taller de Godot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. Personatge
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2. Personatge
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-personatge-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Personatge Principal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lescena-playertest" class="md-nav__link">
+    <span class="md-ellipsis">
+      L'escena PlayerTest
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.enemics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Enemics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.todo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Mans a l'obra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-personatge-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      El Personatge Principal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lescena-playertest" class="md-nav__link">
+    <span class="md-ellipsis">
+      L'escena PlayerTest
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+  <h1>2. Personatge</h1>
+
+<h3 id="el-personatge-principal">El Personatge Principal</h3>
+<p>L'escena del personatge ja conté la següent estructura bàsica:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Player (CharacterBody2D)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   └── AnimatedSprite2D
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   └── CollisionShape2D
+</span></code></pre></div>
+<ol>
+<li><strong>CharacterBody2D</strong>: El node principal, que gestiona el moviment i les interaccions físiques del personatge.</li>
+<li><strong>AnimatedSprite2D</strong>: Un node fill que mostra les animacions del personatge (Idle, Running, Jumping, etc.). <!-- Podem fer que vegen les propietats en l'editor --></li>
+<li><strong>CollisionShape2D</strong>: Un node fill que defineix la forma de col·lisió del personatge.</li>
+</ol>
+<div class="admonition caution">
+<p class="admonition-title">Sobre l'ordre dels nodes</p>
+<p>Cal tindre en compte que l'ordre que establim entre els nodes fills determina com vorem el node pare a l'editor. En aquest cas, veurem el CollissionShape per sobre de l'AnimatedSprite.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Sobre la posició del personatge</p>
+<p>És important que el personatge estiga centrat en la posició (0,0).</p>
+<p>Fixeu-vos que el personatge es troba ubicat entr dues línies: una horitzontal i roja/magenta que representa l'origen de coordenades en l'eix vertical (y=0), i una vertical en verd, que representa l'origen de coordenades en l'eix horitzontal (x=0). Per tant, el personatge es troba en la posició (0,0).</p>
+<p>Això ho podeu comprovar també en la propietat <em>Transform/Position</em> que hereta del <em>Node2D</em>.</p>
+<p>A més, si ampliem la pantalla, veurem que, junt amb aquests dos eixos, apareix un requadre en blau. Aquest requadre és el <em>ViewPort</em>, és a dir, l'espai de pantalla que veurà l'usuari, i que hem definit a les propietats del projecte.</p>
+<p>Si feu clic al botó de reproduir l'escena actual (el Play dins la claqueta), veureu com el personatge apareix al cantó superior esquerre.</p>
+</div>
+<h3 id="lescena-playertest">L'escena PlayerTest</h3>
+<p>Per tal d'ajustar els moviments del jugador, hem preparat una escena anomenada PlayerTest (<code>levels/PlayerTest.tscn</code>). Carregueu-la.</p>
+<p>Aquesta escena, consta d'un Node2D com a node principal, que a dins conté un node de tipus <code>TileMapLayer</code> anomenat <code>GroundLayer</code>. Els Tilemaps són, com diu el nom <em>mapes de tiles</em> que podriem traduir per <em>rajolets</em>, que no són més que imatges menudes que es combinen i repeteixen per formar un escenari.</p>
+<div class="admonition note">
+<p class="admonition-title">Més sobre Tilemaps</p>
+<ul>
+<li><a href="https://joamuran.net/curs24_25/pmdm/u10/3.escena_principal/#tilemaps-i-tilemaplayer">Tilemaps i TilemapLayer, als apunts de PMDM</a></li>
+</ul>
+</div>
+<!-- Eliminem el jugador de l'escena que els anem a passar! -->
+
+<div class="admonition question">
+<p class="admonition-title">To-Do</p>
+<p>Ara el que volem és incorporar el jugador a l'escena, o més bé, una <em>instància</em> del jugador.</p>
+<p>Per a això, amb aquesta escena oberta, només caldrà que busquem l'escena del jugador i l'arrosseguem a aquest aescena.</p>
+<p>Proveu a fer-ho, i feu clic en el botó de reproduir l'escena, per veure que tot es veu correctament.</p>
+</div>
+<h4 id="afegint-funcionalitat-al-personatge">Afegint Funcionalitat al Personatge</h4>
+<p>La funcionalitat als personatges s'incorpora mitjançant scripts amb el llenguatge GDScript.</p>
+<p>En Godot, cada node pot tindre associat com a molt un script per modelar el seu comportament. Això s'aconsegueix amb el botó <em>Attach Script</em>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Compte</p>
+<p>Generalment, voldrem que totes les instàncies d'un tipus d'escena (Classe) tinguen el mateix comportament. Per això, l'script s'ha d'associar a l'escena o al node de l'escena que es desitge, i no a les instàncies concretes.</p>
+<p>Al nostre cas, per exemple, tot i que podríem afegir un script al jugador que hi ha dins l'escena, el que farem serà afegir l'script a l'escena Player en sí, i no a aquesta instància.</p>
+<p>Observeu que el node del <em>Player</em> que hem instanciat en aquesta escena conté, en la finestra de l'arbre d'escena una icona d'una claqueta al costat. Fent clic en ella, podem editar l'escena del jugador.</p>
+</div>
+<p>Així doncs afegim un script a l'escena del jugador per controlar aquest:</p>
+<p><a class="glightbox" href="../img/newScript.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/newScript.png" width="400px" /></a></p>
+<p>Com veieu, <strong>hem seleccionat una plantilla de moviment bàsic per a un CharacterBody2D</strong>, i hem guardat l'Script junt a l'escena del jugador.</p>
+<p>Com veureu, ha aparegut un nou símbol al costat del node del jugador, indicant que aquest té un script associat. Aquest Script apareixerà tant a l'escena del jugador com en totes les instàncies que fem d'ell.</p>
+<div class="admonition note">
+<p class="admonition-title">Com funcionen els scripts...?</p>
+<p>Abans d'examinar el codi dels scripts cal entendre una mica com funciona el <em>bucle del joc</em>.</p>
+<p>Quan executem un videojoc, aquest s'executa dins un bucle, que no s'atura fins que acaba el joc. Aquest bucle s'executa tantes vegades com Frames Per Segon (FPS) tinguem configurats (valors habituals són 30/60 FPS). Cada passada del bucle genera com a resultat un frame, és a dir, la imatge que es mostra en pantalla, i per generar-la es fan moltes operacions prèvies.</p>
+<p>Aquest bucle passa per diferents fases de manera ordenada, entre elles l'aplicació de les físiques, els càlculs de col·lissions, renderitzats, etc. Durant l'execució d'aquestes fases s'invoquen diferents funcions o mètodes dels Scripts que programem, a mode de callbacks.</p>
+<p>Per tant, la nostra tasca quan programem scripts en Godot és la de <em>preparar</em> aquestes funcions per a que en cada fase es realitze allò que desitgem.</p>
+</div>
+<p>Feta aquesta aclaració, podeu examinar el codi de l'script que hem incorporat. Fixeu-vos en els següents detalls:</p>
+<ul>
+<li>Tot i que no definim una classe, estem <em>estenent</em> la funcionalitat d'un node, la qual cosa s'indica en la primera línia amb <code>extends CharacterBody2D</code>. Amb això <em>heretem</em> totes les propietats i mètodes del CharacterBody.</li>
+<li>Definim un parell de constants com SPEED i JUMP_VELOCITY (per què aquesta és negativa?).</li>
+<li>Implementem una funció <code>_physics_process</code>, que rep un paràmetre <code>delta</code>. Aquesta funció s'invoca a cada pas d'actualització de les físiques. El paràmetre delta indica els segons transcorreguts des de l’anterior frame, la qual cosa ens serveix per fer animacions independents del framerate.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Exemple pràctic sobre el framerate i delta</p>
+<p>Imagina que un joc es llança a 60FPS. Vol dir que en un segon el bucle es llança 60 vegades. Si en cada passada del bucle un personatge avança 1 píxel, al cap d'un segon haurà avançat 60 píxels.</p>
+<p>Ara bé, si el joc s'executa a 30FPS, què passa? Quants píxels haurà avançat en 1s? La veloditat serà la mateixa?</p>
+<p>Si introduim un paràmetre <code>delta</code>, que és el temps que ha passat des que es va renderitzar l'últim frame, què passarà? Amb 60FPS, <code>delta=1/60</code> (aprox 0.0167s), i a 30FPS, <code>delta=1/30</code> (aprox. 0.0333s).
+ Què passa en cada cas, si fem que el personatge avance $60*delta$ píxels? Quant haurà avançat en 1 segon?</p>
+<ul>
+<li>Amb 60 FPS el personatge es mourà 60 * (1/60) = 1 píxel per frame, com esperem.</li>
+<li>Amb 30 FPS el personatge es mourà 60 * (1/30) = 2 píxels per frame, compensant la menor taxa de frames.</li>
+</ul>
+<p>Per tant: </p>
+<ul>
+<li>A 60 FPS, el personatge es mou 60 píxels en 1 segon, avançant 1 píxel per fotograma.</li>
+<li>A 30 FPS, el personatge es mou 60 píxels en 1 segon, avançant 2 píxels per fotograma, per mantindre la mateixa velocitat, gràcies a l'ajustament per delta.</li>
+</ul>
+</div>
+<p>Ara ja podeu entendre millor aquesta funció <code>_physycs_process</code>. Intenteu entendre què fa, fent-vos les següents preguntes:</p>
+<ul>
+<li>Què creieu que fa la funció <code>is_on_floor()</code>?</li>
+<li>Què creieu que fa la funció `get_gravity()?</li>
+<li>I els mètodes <code>Input.is_action_just_pressed("ui_accept")</code> i <code>Input.get_axis("ui_left", "ui_right")</code>?</li>
+<li>I la funció <code>move_and_slide()</code>?</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Input per al salt</p>
+<p>L'script predeterminat per al moviment que hem afegit fa ús dels cursors per al moviment horitzontal i de la tecla <code>ui_accept</code> (tecles d'<em>Espai</em> o <em>Enter</em>):</p>
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span><span class="w"> </span><span class="n">Input</span><span class="o">.</span><span class="n">is_action_just_pressed</span><span class="p">(</span><span class="s2">&quot;ui_accept&quot;</span><span class="p">):</span>
+</span></code></pre></div>
+<p>Anem a reemplaçar aquesta per la fletxa del cursor cap amunt. Per això reemplaçem <code>ui_accept</code> per <code>ui_up</code>:</p>
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">if</span><span class="w"> </span><span class="n">Input</span><span class="o">.</span><span class="n">is_action_just_pressed</span><span class="p">(</span><span class="s2">&quot;ui_up&quot;</span><span class="p">):</span>
+</span></code></pre></div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">TO-DO</p>
+<p>Prova ara a llançar l'escena i comprova el funcionament. Intenta interactuar amb la plataforma que apareix a sobre. Has pogut fer-ho?</p>
+<p>Treballem una miqueta amb els <strong>TileMaps</strong>!</p>
+</div>
+<h4 id="configurant-lescena">Configurant l'escena</h4>
+<p>El node que representa el sol i les plataformes és un node de tipus <code>TileMapLayer</code>, que conté una propietat <code>TileSet</code>, que és el <em>conjunt de Tiles</em> o imatges que podem utilitzar per dissenyar les nostres pantalles.</p>
+<p>Si fem clic en el <em>TileSet</em> ens apareix a la part inferior la configuració d'aquest. Al nostre exemple ja tenim importat el TileSet, pel que podem utilitzar-lo directament. <a href="https://joamuran.net/curs24_25/pmdm/u10/3.escena_principal/#que-son-els-tilemaplayers">Podeu llegir una miqueta de documentació per veure com es fa aquest procés</a></p>
+<p>Si estem a la vista de disseny 2D i seleccionem el <em>TileMap</em>, podem <em>pintar</em> seleccionant els Tiles que volem i situant-los en l'escena.</p>
+<h5 id="configurant-collissions-al-tilemap">Configurant col·lissions al Tilemap</h5>
+<p>Si volem que els tiles que afegim actúen com a elements físics i puguen detectar col·lissions, cal configurar-ho al TileMap.</p>
+<p>Per a això, seleccionem el <code>TileMapLayer</code> en qüestió (GroundLayer), i busquem a l'Inspector l'apartat <em>Physics Layer</em> el botó <code>Add Element</code>.</p>
+<p><a class="glightbox" href="../img/physicsLayer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/physicsLayer.png" width="400px" /></a></p>
+<p>Com veurem, ara tenim el Tilemap en Collission Layer 1 i Collission Mask 1. Què significa això?</p>
+<p><a class="glightbox" href="../img/layers.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/layers.png" width="400px" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Els physics Layers</p>
+<p>El sistema de <em>Physics Layers</em> ens permet controlar com interactúen els objectes físics en el joc, i per a això necessitem capes i màscares de col·lissió. </p>
+<ul>
+<li><strong>Collision Layer (Capa de Col·lisió)</strong>: Indica en quina capa o quines capes es troba un objecte. Un objecte pot estar en 32 capes com a màxim. </li>
+<li><strong>Collision Mask (Màscara de Col·lisió)</strong>: Indica amb quines capes pot col·lisionar un objecte.</li>
+</ul>
+<p>Aquest sistema ens dona més joc a l'hora d'establir els sistemes de col·lissió. Per exemple, podem ubicar el jugador en la capa 1, i indicar com a màscara la capa 2, on estiga per exemple el terreny i les plataformes, i la 3, on estan els enemics. Amb això, el jugador col·lissionarà amb les plataformes i els enemics, però no amb altres jugadors.</p>
+</div>
+<p>Si desitgem que un Tile puga col·lissionar, caldrà dnar-li una forma. Això ho podem fer des de la pestanya inferior de TileSet. Amb el Tile que volem seleccionat, a l'eina <em>Selecciona</em> buaixem fins arribar a l'apartat de <em>Physics &gt; Physic Layer 0</em>, des d'on podriem crear la forma de col·lissió que tindrà el Tile, amb l'eina <em>Edit points tool</em>.</p>
+<p><a class="glightbox" href="../img/selectTileset.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/selectTileset.png" width="300px" /></a></p>
+<p>Si el que volem és seleccionar la forma completa del rectangle del Tile, podem fer-ho des del menú dels tres puntets, i seleccionant <em>Reset to Default tile Shape</em>:</p>
+<p><a class="glightbox" href="../img/reset_default.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/reset_default.png" width="350px" /></a></p>
+<div class="admonition question">
+<p class="admonition-title">TO-DO</p>
+<p>Crea ara la forma per als Tiles de la plataforma, per a que puguen col·lissionar amb el jugador.</p>
+</div>
+<h4 id="afegint-animacions-al-personatge">Afegint Animacions al Personatge</h4>
+<p>Ara que tenim el moviment i una interacció bàsica amb l'entorn, és el moment d'afegir les animacions. El node <strong><code>AnimatedSprite2D</code></strong> del personatge ja conté les animacions preconfigurades, per a l'estat de repòs (<em>iddle</em>), caminar (<em>run</em>) i botar (<em>jump</em>).</p>
+<p>Aleshores, el que farem és afegir una funció per gestionar les animacions en funció de l'estat del personatge (si està a terra, botant, corrent, etc.)</p>
+<p>En primer lloc, abans de les funcions declarem una referència al component <em>AnimatedSprite2D</em>:</p>
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">@</span><span class="k">onready</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="n">animated_sprite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">$</span><span class="n">AnimatedSprite2D</span>
+</span></code></pre></div>
+<p>I després definim el mètode:</p>
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">func</span><span class="w"> </span><span class="n">update_animations</span><span class="p">():</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_on_floor</span><span class="p">():</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">velocity</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">            </span><span class="n">animated_sprite</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s2">&quot;run&quot;</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="n">animated_sprite</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s2">&quot;idle&quot;</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">velocity</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="n">animated_sprite</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s2">&quot;jump&quot;</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">            </span><span class="n">animated_sprite</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s2">&quot;fall&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Aquest mètode s'invocarà abans d'invocar el mètode <code>move_and_slide</code> en <code>_physics_process</code>:</p>
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">func</span><span class="w"> </span><span class="n">_physics_process</span><span class="p">(</span><span class="n">delta</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">float</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="o">...</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="c1"># Actualitzar animacions</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">update_animations</span><span class="p">()</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="n">move_and_slide</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Si llancem l'escena, ara el jugador és animat, però mira sempre cap a la dreta. Per tal que el personatge mire en la direcció en què camina haurem d'afegir una xicoteta modificació.</p>
+<p>En primer lloc, definim una propietat que ens indique si mira cap a un o altre costat:</p>
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">var</span><span class="w"> </span><span class="n">mira_esquerra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">false</span><span class="w">  </span><span class="c1"># Variable per recordar l&#39;última direcció del moviment</span>
+</span></code></pre></div>
+<p>I al final del mètode que actualitza les animacions fem:</p>
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">velocity</span><span class="o">.</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">        </span><span class="n">mira_esquerra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span><span class="w">  </span><span class="c1"># Recordem si ens movem cap a l&#39;esquerra</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="p">(</span><span class="n">velocity</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="n">mira_esquerra</span><span class="o">=</span><span class="bp">false</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">animated_sprite</span><span class="o">.</span><span class="n">flip_h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mira_esquerra</span><span class="w">  </span><span class="c1"># Flip horitzontal si es mou cap a l&#39;esquerra</span>
+</span></code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Com interpreteu el codi anterior...?</p>
+<ul>
+<li>Quines comprovacions estem fent?</li>
+<li>Què fa la propietat <code>flip_h</code> del node <em>AnimatedSprite2D</em>?</li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Late TO-DO: Doble salt</p>
+<p>Com podríem fer que el personatge poguera fer un <em>doble salt</em>?</p>
+<p>Algunes pistes:
+ - Crear una variable <code>double_jump</code> per controlar el doble salt.
+ - Quan el jugador estiga a l'aire i prema el botó de salt, permetrem un segon salt si <code>double_jump</code> està activat.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

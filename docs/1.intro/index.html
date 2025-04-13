@@ -1,0 +1,616 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="../2.personatge/">
+      
+      
+      <link rel="icon" href="../img/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+    
+    
+      
+        <title>1. Introducció - Taller de Godot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccio-a-godot-i-preparacio-del-projecte" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Taller de Godot" class="md-header__button md-logo" aria-label="Taller de Godot" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Taller de Godot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Introducció
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Taller de Godot" class="md-nav__button md-logo" aria-label="Taller de Godot" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    Taller de Godot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio-a-godot-i-preparacio-del-projecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducció a Godot i preparació del projecte
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.personatge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Personatge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.enemics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Enemics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.todo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Mans a l'obra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio-a-godot-i-preparacio-del-projecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducció a Godot i preparació del projecte
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+  <h1>1. Introducció</h1>
+
+<h3 id="1-introduccio-a-godot-i-preparacio-del-projecte">1. Introducció a Godot i preparació del projecte</h3>
+<h4 id="que-es-godot">Què és Godot?</h4>
+<p>Godot és un motor de jocs <strong>lliure i de codi obert</strong>, ideal per a crear videojocs 2D i 3D. Té una interfície intuïtiva, suport multiplataforma i un llenguatge de programació propi anomenat <strong>GDScript</strong>, inspirat en Python.</p>
+<div class="admonition note">
+<p class="admonition-title">Descàrrega de Godot</p>
+<p>Podem descarregar Godot des de la seua web <a href="https://godotengine.org/">godotengine.org</a>. La versió actual és la 4.4.1.</p>
+<p>Una vegada a la secció de descàrregues podem tiar entre:</p>
+<ul>
+<li><strong>Godot Engine</strong>: La versió estàndard, que utilitza el llenguatge natiu GDScript.</li>
+<li><strong>Godot Engine .NET</strong>: La versió per a .NET que fa ús de C# com a llenguatge de programació.</li>
+</ul>
+<p>Triarem la versió estàndard, i com veurem, és un fitxer comprimit amb menys de 100mb.</p>
+<p>Una vegada descarregat només haurem de descomprimir el .zip i llançar l'executable resultant.</p>
+</div>
+<h4 id="entorn-de-treball">Entorn de treball</h4>
+<p>En obrir Godot trobem el gestor de projectes, des d’on podem crear un projecte nou o obrir-ne un existent.</p>
+<p>Per tal de crear un projecte:</p>
+<ol>
+<li>Obrim Godot i seleccionem <strong>+Crea</strong> per crear un nou projecte.</li>
+<li>Li donem un nom (per exemple <code>taller_godot</code>)</li>
+<li>Triem la carpeta on es guardarà.</li>
+<li>Seleccionem <strong>Renderer</strong>: <code>Forward+</code> (els altres són optimitzacions per a mòbils i un mode per compatibilitat amb sistemes amb menys recursos)</li>
+<li>Cliquem <strong>Crea</strong></li>
+</ol>
+<p><a class="glightbox" href="../img/creacio_projecte.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/creacio_projecte.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Projecte de base</p>
+<p>Com que ja se us proporciona un projecte de base, només huareu de seleccionar <em>Importa</em> per obrir el projecte.</p>
+</div>
+<h4 id="leditor-de-godot">L'editor de Godot</h4>
+<p>L'editor de Godot té el següent aspecte:</p>
+<p><a class="glightbox" href="../img/ui.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/ui.png" width="400px" /></a></p>
+<p>On trobem els següents elements:</p>
+<ul>
+<li><strong>Menu principal</strong>: Es tracta del menú de l'aplicació des d'on accedir a les funcionalitats principals del programa, com obrir, guardar projectes, configurar l’editor, etc.</li>
+<li><strong>Workspaces</strong>: Godot compta amb diferents espais de treball (2D, 3D, Script, AssetLib) que podem canviar segons el tipus de tasca que estem realitzant. Cada espai de treball està estructurat per als diferents tipus de treball que estem fent.</li>
+<li><strong>Barra d'eines (Toolbar)</strong>: La barra d’eines ofereix accés ràpid a les eines i les funcions més comunes, com moure, rotar, escalar objectes, entre d’altres. Aquesta barra variarà en funció de l'espai de treball on ens trobem.</li>
+<li><strong>Playtest buttons</strong>: Ens permeten controlar l'execució del projecte que estem desenvolupant per provar-lo des del mateix editor.</li>
+<li><strong>Vista de l’escena i Viewport</strong>: És la zona principal de treball, on podem veure i editar les escenes del joc. En el mode 2D, veiem una vista plana, mentre que en el mode 3D, disposarem d'una vista tridimensional.</li>
+<li><strong>Panell inferior (Bottom Panel)</strong>: Conté diverses eines d'utilitat com la consola d'eixida, el depurador, o els editors d'àudio i animacions.</li>
+<li><strong>Tab de l’arbre de l’escena</strong>: Mostra la jerarquia d'objectes (nodes) de l'escena actual, des d'on podem gestionar els nodes d'aquesta.</li>
+<li><strong>Tab de recursos del projecte</strong>: Ens mostra els recursos del projecte, tals com scripts, imatges, sons, etc. És com un explorador de fitxers integrat dins de l’editor.</li>
+<li><strong>Tab amb l’inspector</strong>: Ens mostra les propietat de l'objecte (node) seleccionat, i ens permet la seua modificació.</li>
+</ul>
+<h4 id="configuracio-inicial-del-projecte">Configuració inicial del projecte</h4>
+<p>Per a jocs 2D, i especialment si utilitzem píxel art, és important <strong>establir bé la resolució</strong> i <strong>escalar correctament</strong> la finestra.</p>
+<p><strong>Configuració recomanada per al taller:</strong>
+* Resolució base: <code>800 x 450</code> (Ideal per píxel art)
+* Resolució de finestra: <code>1280 x 720</code> (Escalat més clar en pantalles modernes)</p>
+<p>Per tal de configurar el projecte:</p>
+<ul>
+<li>Accedim a <code>Project → Project Settings → Display → Window → Size</code>, i establim:<ul>
+<li><code>Viewport Width</code>: <code>800</code></li>
+<li><code>Viewport Height</code>: <code>450</code></li>
+<li><code>Window Width Override</code>: <code>1280</code> (cal activat <em>Advanced Settings</em>)</li>
+<li><code>Window Height Override</code>: <code>720</code> (cal activat <em>Advanced Settings</em>)</li>
+<li><code>Stretch → Mode</code> : ViewPort (per ajustar la finestra al <em>ViewPort</em>)</li>
+</ul>
+</li>
+</ul>
+<p>A més, per a l'escalat de píxels (important per píxel art):</p>
+<ul>
+<li>A <code>Rendering → Textures → Canvas Texture → Default Texture Filter</code>: seleccionem <code>Nearest</code>: Això evita que els píxels apareguen difuminats quan escalen.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Projecte preconfigurat</p>
+<p>Tot i que ja tindreu configurat el projecte, comproveu que aquests paràmetres estan correctament ajustats.</p>
+</div>
+<h4 id="estructura-basica-de-godot">Estructura bàsica de Godot</h4>
+<p><strong>Godot treballa amb escenes i nodes</strong></p>
+<ul>
+<li>Una <strong>Escena</strong> és una unitat de joc: pot ser un personatge, un nivell, un botó…</li>
+<li>Cada escena es forma amb <strong>Nodes</strong>, que poden ser visuals (2D/3D), de col·lisió, sons, càmeres, scripts...</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">...i en Godot no ens oblidem de la POO</p>
+<p>En Godot, cada <strong>node</strong> és una instància d'una <strong>classe</strong>, i podem crear jerarquies i fer ús de l’<strong>herència</strong> per estructurar millor el nostre codi.</p>
+<p>El tipus de node que afegim a l’escena determina les <em>funcionalitats</em> que tindrà aquest node. A més, les <strong>classes</strong> que s’utilitzen en Godot segueixen un model d'herència que es reflecteix directament en les jerarquies de nodes.</p>
+</div>
+<h5 id="estructura-del-node-jugador">Estructura del node jugador</h5>
+<p>Obri l'escena del jugador (<code>Characters/Player/player.tscn</code>), i observa que aquesta té la següent estructura:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Player (CharacterBody2D)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   └── AnimatedSprite2D
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   └── CollisionShape2D
+</span></code></pre></div>
+<p>És a dir, l'escena del jugador està formada per un node que hem anomenat <code>Player</code> i que és un node de tipus <code>CharacterBody2D</code>. Aquest node conté dos nodes fills: <code>AnimatedSprite2D</code> i <code>CollissionShape2D</code>.</p>
+<p>La relació entre aquests nodes és una <strong>relació de composició</strong> o <strong>conté-un</strong>:</p>
+<pre class="mermaid"><code>---
+  config:
+    class:
+      hideEmptyMembersBox: true
+---
+classDiagram
+    Player *-- AnimatedSprite2D
+    Player *-- CollissionShape2D
+
+    class Player
+    &lt;&lt;CharacterBody2D&gt;&gt; Player</code></pre>
+<p>Des del node <em>Player</em> podem gestionar els nodes <code>AnimatedSprite2D</code> i <code>CollissionShape2D</code>. A més, aquests nodes fills podrien tindre altres nodes fills, formant una jerarquia en forma d'arbre (coneguda com l'arbre de l'escena)</p>
+<p>Hem dit que cada tipus de node determina la funcionalitat d'aquest. So fem clic en el botó <code>+</code> situat a baix la pestanya d'<em>Escena</em> per afegir un nou node, podrem veure tota la jerarquia d'aquests:</p>
+<p><a class="glightbox" href="../img/seleccio_nodes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/seleccio_nodes.png" /></a></p>
+<p>Observeu que els diferents tipus de nodes s'organitzen en forma d'arbre, i que podem anar aprofundint en aquest arbre per trobar el node que necessitem, o bé podem buscar-lo fent servir la barra superior. En aquest selector hem de tindre en compte alguns detalls:</p>
+<ul>
+<li>La relació entre els diferents nodes que apareixen aci és una <strong>relació d'herència</strong>. És a dir, cada node intern de l'arbre <em>deriva</em> o <em>descendeix</em> del node que apareix com a pare.</li>
+<li>Els nodes tenen una icona que els representa. El color d'aquesta determina el tipus: El color blau indica que són nodes per a 2D, el roig per a 3D, i el verd que són nodes per al disseny d'interfícies.</li>
+<li>Alguns nodes apareixen en gris. Això vol dir que es tracta de <em>classes abstractes</em>. És a dir, que no es poden instanciar directament.</li>
+<li>Cada classe defineix unes funcionalitats i propietats concretes. Des de l'editor del joc, i des del codi anem a poder accedir tant a les propietats del node com a les propietats dels seus nodes ascendents.</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Fem una prova...</p>
+<p>Des de la finestra de selecció observeu quin és el camí en l'arbre fins arribar, perr exemple al node de tipus <em>AnimatedSprite</em>.</p>
+<p>Fixem-nos també en l'<em>Inspector</em>, ubicat a la part dreta de l'editor. Des d'aquest apart de la intefície podem ajustar les diferents propietats del node seleccionat.</p>
+<p>Contrasteu el camí que hem vist en la finestra anterior per arribar al node <em>AnimatedSprite2D</em> amb l'organització de l'<em>Inspector</em> per a aquest node. Quines conclussions podem extraure?</p>
+</div>
+<p>Una vegada hem entès bé la relació entre els diferents tipus de nodes, veiem per a què serveixen aquests:</p>
+<ul>
+<li><strong><code>Node</code></strong>: La classe més bàsica que permet la creació d'escenes.</li>
+<li><strong><code>CanvasItem</code></strong>: Classe per a nodes que poden ser dibuixats (en 2D).</li>
+<li><strong><code>Node2D</code></strong>: Hereta de <code>CanvasItem</code> i és la classe bàsica per a nodes en un espai 2D (per exemple, sprites, càmeres, etc.).</li>
+<li><strong><code>CollisionObject2D</code></strong>: Hereta de <code>Node2D</code> i és la classe base per a objectes que poden tenir col·lisions en l'espai 2D.</li>
+<li><strong><code>PhysicsBody2D</code></strong>: Hereta de <code>CollisionObject2D</code> i és la classe base per a objectes físics en el món 2D (cossos que interactuen amb la física).</li>
+<li><strong><code>CharacterBody2D</code></strong>: Especialització de <code>PhysicsBody2D</code>, dissenyada per a personatges que interactúen en el joc o entitats controlades per l'usuari. A més, proporciona funcionalitats avançades per al moviment (com el mètode <code>move_and_slide</code> que veurem després).</li>
+</ul>
+<p>Com hem vist a l'Inspector, quan utiliem un node tenim accés a totes les propietats i funcions de les classes superior. A mode d'exemple, per a un <em>CharacterBody2D</em> podem ajustar propietats de classes ascendents com:</p>
+<ul>
+<li><strong><code>Node2D</code></strong>: Ens permet treballar amb la posició, rotació i escala del node (propietats <code>position</code>, <code>rotation</code>, <code>scale</code>)</li>
+<li><strong><code>CollisionObject2D</code></strong>: Ens permet gestionar col·lisions en 2D (mètodes <code>add_collision_exception_with()</code>, <code>set_collision_layer()</code>, <code>set_collision_mask()</code>)</li>
+<li><strong><code>PhysicsBody2D</code></strong>: Ens permet treballar amb la física 2D (gravetat, moviment, etc.) (mètodes com <code>apply_impulse()</code> o propietats com <code>velocity</code>, <code>linear_velocity</code>).</li>
+<li><strong><code>CharacterBody2D</code></strong>: Ens permet gestionar personatges jugables amb funcionalitats com el <strong>mètode <code>move_and_slide()</code></strong>, per desplaçar el jugador o <code>is_on_floor()</code> per saber si és a terra.</li>
+</ul>
+<h5 id="diagrama-de-classes-complet">Diagrama de classes complet</h5>
+<p>Tenint en compte tot el que hem vist, el diagrama de classes quedaria de la següent forma:</p>
+<pre class="mermaid"><code>---
+  config:
+    class:
+      hideEmptyMembersBox: true
+---
+classDiagram
+    Node &lt;|-- CanvasItem
+    CanvasItem &lt;|-- Node2D
+    Node2D &lt;|-- CollisionObject2D
+    CollisionObject2D &lt;|-- PhysicsBody2D
+    PhysicsBody2D &lt;|-- CharacterBody2D
+
+    class Node {
+        +name
+    }
+
+    class CanvasItem {
+    }
+
+    class Node2D {
+        +position
+        +rotation
+        +scale
+    }
+
+    class CollisionObject2D {
+    }
+
+    class PhysicsBody2D {
+        +apply_impulse()
+        +velocity
+        +linear_velocity
+    }
+
+    class CharacterBody2D {
+        +move_and_slide()
+        +is_on_floor()
+        +velocity
+    }
+
+    AnimatedSprite2D &lt;|-- Node2D
+    CollissionShape2D &lt;|-- Node2D
+
+    CharacterBody2D *-- AnimatedSprite2D
+    CharacterBody2D *-- CollissionShape2D
+
+</code></pre>
+<p>Com veiem:</p>
+<ul>
+<li>La nostra escena <em>Player</em> consisteix en un node principal <em>CharacterBody2D</em> que és una composició d'<em>AnimatedSprite2D</em> i de <em>CollissionShape2D</em>. </li>
+<li>Cadascuna d'aquestes classes té el seu comportament independent, però en conjunt formen el personatge jugable.</li>
+<li>Quan creem un node <em>CharacterBody2D</em>, automàticament estem adquirint les propietats i funcions de <em>PhysicsBody2D</em> i <em>CollisionObject2D</em>, que ens permetran treballar amb física i col·lisions de manera més detallada.Així, podem configurar les propietats físiques (com la gravetat o la velocitat) a <em>CharacterBody2D</em>, però també tenim accés a funcions de col·lisió i moviment que provenen de les classes superiors.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
