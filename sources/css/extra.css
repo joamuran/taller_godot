@@ -1,0 +1,13 @@
+.md-sidebar--primary .md-sidebar__scrollwrap{
+    background-image: url(../css/bgMenu.png);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

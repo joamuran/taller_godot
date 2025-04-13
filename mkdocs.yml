@@ -8,6 +8,7 @@ nav:
   - "2. Personatge": '2.personatge.md'
   - "3. Enemics": '3.enemics.md'
   - "4. Mans a l'obra": '4.todo.md'
+  - "5. Recursos": '5.recursos.md'
   
 
 theme:
@@ -15,10 +16,13 @@ theme:
   custom_dir: 'overrides'
   logo: 'img/logo.svg'
   favicon: 'img/logo.svg'
+  palette:
+    primary: "red"
   features:
     - content.code.copy # Per copiar codi
 
-#extra_css:
+extra_css:
+  - css/extra.css
 #  - https://joamuran.net/curs24_25/css/material-just.css
 
 plugins:

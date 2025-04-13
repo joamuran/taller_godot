@@ -24,6 +24,9 @@
     
       <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
       
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
       
 
 
@@ -40,6 +43,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../css/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -60,7 +65,12 @@
     body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -111,8 +121,8 @@
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -316,6 +326,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.recursos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -395,14 +425,16 @@
 <li>Seleccionem <strong>Renderer</strong>: <code>Forward+</code> (els altres són optimitzacions per a mòbils i un mode per compatibilitat amb sistemes amb menys recursos)</li>
 <li>Cliquem <strong>Crea</strong></li>
 </ol>
-<p><a class="glightbox" href="../img/creacio_projecte.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/creacio_projecte.png" /></a></p>
+<p><a class="glightbox" href="../img/creacio_projecte.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="dd" src="../img/creacio_projecte.png" width="400px" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Projecte de base</p>
 <p>Com que ja se us proporciona un projecte de base, només huareu de seleccionar <em>Importa</em> per obrir el projecte.</p>
+<p>Aquest projecte el trobareu <a href="https://github.com/joamuran/taller_godot">al repositori Github d'aquest taller</a>. </p>
+<p>Disposem del projecte Godot base per al taller comprimit a la carpeta projects.</p>
 </div>
 <h4 id="leditor-de-godot">L'editor de Godot</h4>
 <p>L'editor de Godot té el següent aspecte:</p>
-<p><a class="glightbox" href="../img/ui.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/ui.png" width="400px" /></a></p>
+<p><a class="glightbox" href="../img/ui.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/ui.png" width="500px" /></a></p>
 <p>On trobem els següents elements:</p>
 <ul>
 <li><strong>Menu principal</strong>: Es tracta del menú de l'aplicació des d'on accedir a les funcionalitats principals del programa, com obrir, guardar projectes, configurar l’editor, etc.</li>
@@ -471,7 +503,7 @@ classDiagram
     &lt;&lt;CharacterBody2D&gt;&gt; Player</code></pre>
 <p>Des del node <em>Player</em> podem gestionar els nodes <code>AnimatedSprite2D</code> i <code>CollissionShape2D</code>. A més, aquests nodes fills podrien tindre altres nodes fills, formant una jerarquia en forma d'arbre (coneguda com l'arbre de l'escena)</p>
 <p>Hem dit que cada tipus de node determina la funcionalitat d'aquest. So fem clic en el botó <code>+</code> situat a baix la pestanya d'<em>Escena</em> per afegir un nou node, podrem veure tota la jerarquia d'aquests:</p>
-<p><a class="glightbox" href="../img/seleccio_nodes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/seleccio_nodes.png" /></a></p>
+<p><a class="glightbox" href="../img/seleccio_nodes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/seleccio_nodes.png" width="500px" /></a></p>
 <p>Observeu que els diferents tipus de nodes s'organitzen en forma d'arbre, i que podem anar aprofundint en aquest arbre per trobar el node que necessitem, o bé podem buscar-lo fent servir la barra superior. En aquest selector hem de tindre en compte alguns detalls:</p>
 <ul>
 <li>La relació entre els diferents nodes que apareixen aci és una <strong>relació d'herència</strong>. És a dir, cada node intern de l'arbre <em>deriva</em> o <em>descendeix</em> del node que apareix com a pare.</li>

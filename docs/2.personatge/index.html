@@ -26,6 +26,9 @@
     
       <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
       
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
       
 
 
@@ -42,6 +45,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../css/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -62,7 +67,12 @@
     body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -113,8 +123,8 @@
       </div>
     </div>
     
+      
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -327,6 +337,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.recursos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -501,9 +531,9 @@
 <h5 id="configurant-collissions-al-tilemap">Configurant col·lissions al Tilemap</h5>
 <p>Si volem que els tiles que afegim actúen com a elements físics i puguen detectar col·lissions, cal configurar-ho al TileMap.</p>
 <p>Per a això, seleccionem el <code>TileMapLayer</code> en qüestió (GroundLayer), i busquem a l'Inspector l'apartat <em>Physics Layer</em> el botó <code>Add Element</code>.</p>
-<p><a class="glightbox" href="../img/physicsLayer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/physicsLayer.png" width="400px" /></a></p>
+<p><a class="glightbox" href="../img/physicsLayer.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/physicsLayer.png" width="200px" /></a></p>
 <p>Com veurem, ara tenim el Tilemap en Collission Layer 1 i Collission Mask 1. Què significa això?</p>
-<p><a class="glightbox" href="../img/layers.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/layers.png" width="400px" /></a></p>
+<p><a class="glightbox" href="../img/layers.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/layers.png" width="200px" /></a></p>
 <div class="admonition note">
 <p class="admonition-title">Els physics Layers</p>
 <p>El sistema de <em>Physics Layers</em> ens permet controlar com interactúen els objectes físics en el joc, i per a això necessitem capes i màscares de col·lissió. </p>
