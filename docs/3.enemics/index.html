@@ -478,14 +478,13 @@
 </span></code></pre></div>
 <p>El codi és similar al del moviment del pesonatge. Observeu que ara implementem les funcions del bucle del joc <code>_ready()</code>, que es dispara quan el node es troba instanciat i preparat, i <code>_physics_process()</code>, per tal de processar les físiques.</p>
 <p>Després comprovem si no està tocant el terra, per aplicar-li la gravetat, ajustem el <em>flip</em> en horitzontal i movem el node amb <code>move_and_slide()</code>. Una vegada s'ha mogut, és possible que col·lissione amb alguna paret, de manera que ho comprovem amb <code>is_on_wall()</code>. Si és així, simplement fem que canvie de direcció.</p>
-<p>!!!note <code>is_on_wall()</code> i <code>is_on_floor()</code>
-     Aquests són dos mètodes especialitzats per a la detecció de col·lissions. En general, quan es detecten col·lissions, necessitem saber el sentit en què s'han produit, ja que no és el mateix caure sobre un enemic per eliminar-lo que xocar contra ell, cas al qual mor el personatge.</p>
-<div class="language-text highlight"><pre><span></span><code> En tots dos casos es produeix una col·lissió, però en el primer es fa en sentit vertical, i en el segon en horitzontal.
-
-  Aquest sentit ve determinat pel vector *normal* a la col·lissió, un vector perpendicular a la superfície de la col·lissió. Si la normal és més o menys *vertical*, sabem que el personatge està tocant el terra, mentre que si la normal és més o menys *horitzontal*, el personatge està tocant una paret o un enemic.
-
-  Les funcions `is_on_floor()` i `is_on_wall` utilitzen aquesta normal internament, i ens simplifiquen la feina de detectar col·lissions en sentit vertical o horitzontal.
-</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title"><code>is_on_wall()</code> i <code>is_on_floor()</code></p>
+<p>Aquests són dos mètodes especialitzats per a la detecció de col·lissions. En general, quan es detecten col·lissions, necessitem saber el sentit en què s'han produit, ja que no és el mateix caure sobre un enemic per eliminar-lo que xocar contra ell, cas al qual mor el personatge.</p>
+<p>En tots dos casos es produeix una col·lissió, però en el primer es fa en sentit vertical, i en el segon en horitzontal. </p>
+<p>Aquest sentit ve determinat pel vector <em>normal</em> a la col·lissió, un vector perpendicular a la superfície de la col·lissió. Si la normal és més o menys <em>vertical</em>, sabem que el personatge està tocant el terra, mentre que si la normal és més o menys <em>horitzontal</em>, el personatge està tocant una paret o un enemic.</p>
+<p>Les funcions <code>is_on_floor()</code> i <code>is_on_wall</code> utilitzen aquesta normal internament, i ens simplifiquen la feina de detectar col·lissions en sentit vertical o horitzontal.</p>
+</div>
 <p>Si ara llancem l'escena, veurem que la tortuga canvia de sentit quan col·lissiona horitzontalment amb qualsevol element (personatge inclòs).</p>
 <p>Ara ens queda detectar les col·lissions amb el jugador. Per a això ja necessitarem fer ús del vector <em>normal</em> en lloc de <code>is_on_wall()</code>. Així, que eliminem el següent fragment de codi:</p>
 <div class="language-gdscript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span><span class="w"> </span><span class="n">is_on_wall</span><span class="p">():</span>
@@ -524,8 +523,8 @@
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">direction</span><span class="w">  </span><span class="c1"># Invertim la direcció (de dreta a esquerra o viceversa)</span>
 </span></code></pre></div>
 <p>Ara cal comprovar si l'objecte amb el que s'ha produit la col·lissió és el jugador. Per a això, introduïm els grups.</p>
-<div class="admonition note afegint el jugador al grup player">
-<p class="admonition-title">Note</p>
+<div class="admonition note">
+<p class="admonition-title">Afegint el jugador al grup Player</p>
 <p>Els grups en Godot són una manera de classificar nodes per poder gestionar-los conjuntament. Això permet realitzar operacions a tots els nodes d'un grup de manera senzilla, com cridar un mètode o aplicar un canvi.</p>
 <p>A més, podem comprovar si un node forma part d'un grup amb el mètode <code>is_in_group("nom_grup")</code>.</p>
 <p>Així, abans de comprovar si es col·lissiona amb el jugador, anem a afegir aquest al grup <em>player</em>.</p>
